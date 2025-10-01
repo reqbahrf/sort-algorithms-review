@@ -5,15 +5,17 @@ const partition = (arr, start, end) => {
   for (; j <= end - 1; j++) {
     if (arr[j] < pivot) {
       i++;
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
+      // let temp = arr[i];
+      // arr[i] = arr[j];
+      // arr[j] = temp;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
   }
   i++;
-  let temp = arr[i];
-  arr[i] = arr[end];
-  arr[end] = temp;
+  // let temp = arr[i];
+  // arr[i] = arr[end];
+  // arr[end] = temp;
+  [arr[i], arr[end]] = [arr[end], arr[i]];
 
   return i;
 };
