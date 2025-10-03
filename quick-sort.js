@@ -1,32 +1,25 @@
 const partition = (arr, start, end) => {
-  let pivot = arr[end];
+  const pivot = arr[end];
   let i = start - 1,
     j = start;
+
   for (; j <= end - 1; j++) {
     if (arr[j] < pivot) {
       i++;
-      // let temp = arr[i];
-      // arr[i] = arr[j];
-      // arr[j] = temp;
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
   }
   i++;
-  // let temp = arr[i];
-  // arr[i] = arr[end];
-  // arr[end] = temp;
   [arr[i], arr[end]] = [arr[end], arr[i]];
-
   return i;
 };
 
 const quickSort = (arr, start, end) => {
   if (end <= start) return arr;
 
-  let pivot = partition(arr, start, end);
+  const pivot = partition(arr, start, end);
   quickSort(arr, start, pivot - 1);
   quickSort(arr, pivot + 1, end);
-
   return arr;
 };
 
